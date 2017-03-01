@@ -5,11 +5,43 @@
        default-autowire="byName">
 
 
+    <bean id="springTest" class="com.basic.leanring.java.fix.SpringTest"/>
 
 
+    <!-- advice -->
+    <bean id="methoIntercepter" class="com.basic.leanring.java.intercepter.MethodIntercepter">
+        <property name="name" value="test" />
 
-    <bean id="springTest" class="com.basic.leanring.java.fix.SpringTest" />
+    </bean>
 
+    <!--- 切点通知 -->
+    <bean id="fastAnalyzePreCalAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice">
+            <ref bean="methoIntercepter"/>
+        </property>
+        <property name="mappedName">
+            <value>execute</value>
+        </property>
+    </bean>
+
+    <!-- 自动代理 -->
+    <bean id="fastIndicatorClientAutoProxyCreator"
+          class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="proxyTargetClass">
+            <value>false</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>fastAnalyzePreCalAdvisor</value>
+            </list>
+        </property>
+        <property name="beanNames">
+            <list>
+                <value>fastAnalyzeTComponent</value>
+                <value>deepAnalyzeTComponent</value>
+            </list>
+        </property>
+    </bean>
 
 
 </beans>

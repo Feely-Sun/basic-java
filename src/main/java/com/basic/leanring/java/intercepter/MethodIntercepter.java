@@ -1,7 +1,17 @@
 package com.basic.leanring.java.intercepter;
 
+import com.basic.leanring.java.tiercomponent.TierComponent;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * @author sunzihan
@@ -9,15 +19,56 @@ import org.aopalliance.intercept.MethodInvocation;
  */
 public class MethodIntercepter  implements MethodInterceptor {
 
+    private String name;
+
+
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
+        java.lang.reflect.Method  method = invocation.getMethod();
+        Class<?> clazz = method.getDeclaringClass();
+
+        String classStr = clazz.getName();
+        String mtstr = method.toString();
+
+        String res = StringUtils.substringAfter(mtstr,classStr);
+        Object obj = invocation.proceed();
+
+        return obj;
+    }
 
 
+//
+//
+//    @Override
+//    public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
+//
+//        Method[] methods =o.getClass().getMethods();
+//
+//        Map<String,Method> methodMap = new HashMap<>();
+//        for (Method m : methods){
+//
+//            methodMap.put(StringUtils.substringAfter(m.toString(),m.getDeclaringClass().getName()),m);
+//            System.out.println(m.getName());
+//
+//        }
+//
+//
+//
+//        return o;
+//    }
+//
+//    @Override
+//    public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
+//        return o;
+//    }
 
 
+    public String getName() {
+        return name;
+    }
 
-
-        return null;
+    public void setName(String name) {
+        this.name = name;
     }
 }
 
