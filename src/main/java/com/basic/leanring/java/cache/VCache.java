@@ -1,15 +1,13 @@
 package com.basic.leanring.java.cache;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.*;
 
-import com.google.common.cache.CacheLoader;
-import com.google.common.cache.LoadingCache;
+import com.google.common.cache.*;
 import org.springframework.beans.factory.InitializingBean;
-
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
 
 /**
  * @author sunzihan
@@ -25,6 +23,12 @@ public class VCache implements InitializingBean {
     /** 指标计算上下文缓存：eventId => indicatorId => indicatorValue */
     private LoadingCache<String, Set<Integer>> cache2;
 
+    /** 用于批量缓存同步 */
+    private final static ThreadLocal<List<Set<Integer>>> BATCH_SYNC       = new ThreadLocal<List<Set<Integer>>>();
+
+
+    /** 事件处理线程池 */
+    private ExecutorService   execute =Executors.newFixedThreadPool(10);
 
     private String                     valueCacheConfig               = CacheConfigBuilder
             .newBuilder()                                                                           //
@@ -48,12 +52,34 @@ public class VCache implements InitializingBean {
                 .initialCapacity(5)
                 .build();
 
-        cache2 = CacheBuilder.from(valueCacheConfig).build(new CacheLoader<String, Set<Integer>>() {
+
+        CacheBuilder<String, Set<Integer>> cahceBuilder = CacheBuilder.newBuilder()
+                .maximumSize(10)
+                .removalListener(new RemovalListener<String,  Set<Integer>>() {
+                    @Override
+                    public void onRemoval(RemovalNotification<String,  Set<Integer>> rn) {
+                        // 判断是否为批量处理  @see {SyncTask.run}
+                        System.out.println("trigger rev listening.....current Thread.." + Thread.currentThread().getName());
+                        List< Set<Integer>> list = BATCH_SYNC.get();
+                        System.out.println("list......+" + list);
+                        if (list != null) {
+                            list.add(rn.getValue());
+                            return;
+                        }
+                        execute.execute(new SyncTask(rn.getValue()));
+                    }
+                });
+        cache2 = cahceBuilder.build(new CacheLoader<String,  Set<Integer>>() {
             @Override
-            public Set<Integer> load(String key) throws Exception {
-                return new HashSet<Integer>();
+            public  Set<Integer> load(String key) throws Exception {
+                //当指定KEY在缓存中不存在时的加载方法，自动根据KEY构造新缓存对象并返回，利用缓存服务本身的并发机制规避并发问题
+                Set<Integer> info = new HashSet<Integer>();
+                System.out.println("load cache22....");
+                info.add(12);
+                return info;
             }
         });
+
 
 
 
@@ -72,12 +98,49 @@ public class VCache implements InitializingBean {
         return cache;
     }
 
+    public final  LoadingCache<String, Set<Integer>> getLoadingCache() {
+        return cache2;
+    }
+
 
     class SyncTask implements Runnable{
+
+        public Set<Integer> sets = null;
+
+
+        public SyncTask(Set<Integer> sets){
+            this.sets = sets;
+        }
+
+        public SyncTask(){}
+
+
         @Override
         public void run() {
             System.out.println("start to do....current thread=" + Thread.currentThread().getName());
+            List<Set<Integer>> list = new ArrayList<>();
+
+            Set<Integer> sets = new HashSet<>();
+            sets.add(1);
+            sets.add(2);
+            sets.add(3);
+
+            list.add(sets);
+
+            BATCH_SYNC.set(list);
+
+            System.out.println("invailed cache.....");
+            cache2.invalidateAll();
+
+            System.out.println("current Thread...." + Thread.currentThread().getName());
+
+
         }
+    }
+
+
+    public static void main(String[] args) {
+
     }
 
 
