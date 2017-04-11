@@ -1,11 +1,5 @@
 package com.basic.leanring.java.util;
 
-import com.alibaba.common.lang.ClassLoaderUtil;
-import com.alibaba.common.lang.StringUtil;
-import com.alibaba.common.lang.enumeration.CreateEnumException;
-import com.alibaba.common.lang.enumeration.Flags;
-import com.alibaba.common.lang.enumeration.internal.EnumConstant;
-
 import java.io.InvalidClassException;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
@@ -18,6 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+
+import com.basic.leanring.java.constant.EnumConstant;
+import com.basic.leanring.java.constant.Flags;
+import com.basic.leanring.java.exception.CreateEnumException;
+
 /**
  * 类型安全的枚举类型.
  *
@@ -25,7 +24,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @version $Id: Enum.java V 0.1 3/15/17 16:22 sunzihan EXP $
  */
 public abstract class Enum  extends Number implements NumberType,Comparable,Serializable{
-    private static final long serialVersionUID = -3420208858441821772L;
+
+    private static final long serialVersionUID = -3679295233093139994L;
     private String            name;
     private Number            value;
 
@@ -59,7 +59,7 @@ public abstract class Enum  extends Number implements NumberType,Comparable,Seri
      *
      * @param value 枚举量的值, 这个值不能为<code>null</code>
      */
-    static final Enum createEnum(Number value) {
+    protected static final Enum createEnum(Number value) {
         return createEnum(null, value, true);
     }
 
@@ -69,7 +69,7 @@ public abstract class Enum  extends Number implements NumberType,Comparable,Seri
      * @param name 枚举量的名称
      * @param value 枚举量的值, 这个值不能为<code>null</code>
      */
-    static final Enum createEnum(String name, Number value) {
+    protected static final Enum createEnum(String name, Number value) {
         return createEnum(name, value, true);
     }
 
@@ -83,12 +83,12 @@ public abstract class Enum  extends Number implements NumberType,Comparable,Seri
     private static Enum createEnum(String name, Number value, boolean withValue) {
         String enumClassName                   = null;
         Class  enumClass;
-        Enum   enumObject;
+        com.basic.leanring.java.util.Enum   enumObject;
 
         try {
             enumClassName                      = getCallerClassName();
             enumClass                          = ClassLoaderUtil.loadClass(enumClassName);
-            enumObject                         = (Enum) enumClass.newInstance();
+            enumObject                         = (com.basic.leanring.java.util.Enum) enumClass.newInstance();
 
             enumObject.setName(StringUtil.trimToNull(name));
         } catch (ClassNotFoundException e) {

@@ -17,5 +17,21 @@ public class Md5 extends BaseTest{
         System.out.println(res.length());
 
     }
+
+
+    @Test
+    public void query() {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("(Nav :START=(Nav :START=");
+        sb.append(""+"xxdfsdfdsfdsfds");
+        sb.append(" :EDGE_TYPE=\"gdb_ctu_kexin_media_geabase#16\"  :FILTER=@bg_status<2 )" );
+        sb.append(" :EDGE_TYPE=\"gdb_ctu_user_user#user_user\" :TIMESTAMP=0 :EXPECTED_DST= ");
+        sb.append(""+"1233445234234324");
+        sb.append(" :RETURN=~contact_cti)");
+
+        System.out.println(sb.toString());
+
+    }
 }
 

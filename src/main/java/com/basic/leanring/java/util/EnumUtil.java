@@ -1,8 +1,6 @@
 package com.basic.leanring.java.util;
 
 
-import com.alibaba.common.lang.enumeration.internal.EnumConstant;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -12,6 +10,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.ConcurrentHashMap;
+
+import com.alibaba.common.lang.enumeration.internal.EnumConstant;
 
 /**
  * @author sunzihan
@@ -170,7 +170,7 @@ public class EnumUtil {
      *
      * @return 枚举量, 如果不存在, 则返回<code>null</code>
      */
-    public static com.alibaba.common.lang.enumeration.Enum getEnumByValue(Class enumClass, int value) {
+    public static Enum getEnumByValue(Class enumClass, int value) {
         ClassLoader oldClassLoader = Thread.currentThread()
                 .getContextClassLoader();
         try {
@@ -180,7 +180,7 @@ public class EnumUtil {
             if (enumType.enumList.size() != enumType.valueMap.size()) {
                 enumType.populateNames(enumClass);
             }
-            return (com.alibaba.common.lang.enumeration.Enum) enumType.valueMap.get(new Integer(value));
+            return (Enum) enumType.valueMap.get(new Integer(value));
         } finally {
             Thread.currentThread().setContextClassLoader(oldClassLoader);
         }
@@ -196,7 +196,7 @@ public class EnumUtil {
      *
      * @return 枚举量, 如果不存在, 则返回<code>null</code>
      */
-    public static com.alibaba.common.lang.enumeration.Enum getEnumByValue(Class enumClass, long value) {
+    public static Enum getEnumByValue(Class enumClass, long value) {
         ClassLoader oldClassLoader = Thread.currentThread()
                 .getContextClassLoader();
         try {
@@ -206,7 +206,7 @@ public class EnumUtil {
             if (enumType.enumList.size() != enumType.valueMap.size()) {
                 enumType.populateNames(enumClass);
             }
-            return (com.alibaba.common.lang.enumeration.Enum) enumType.valueMap.get(new Long(value));
+            return (Enum) enumType.valueMap.get(new Long(value));
         } finally {
             Thread.currentThread().setContextClassLoader(oldClassLoader);
         }
@@ -288,14 +288,14 @@ public class EnumUtil {
      *
      * @return <code>Enum</code>类对应的<code>EnumType</code>对象
      */
-    static Enum.EnumType getEnumType(Class enumClass) {
+    public static Enum.EnumType getEnumType(Class enumClass) {
         if (enumClass == null) {
             throw new NullPointerException(EnumConstant.ENUM_CLASS_IS_NULL);
         }
 
         // pangu：去掉类锁，防止 aliEnum 2种不同类初始化入口互相死锁。
         // synchronized (enumClass) {
-        if (!com.alibaba.common.lang.enumeration.Enum.class.isAssignableFrom(enumClass)) {
+        if (!Enum.class.isAssignableFrom(enumClass)) {
             throw new IllegalArgumentException(MessageFormat.format(
                     EnumConstant.CLASS_IS_NOT_ENUM,
                     new Object[] { enumClass.getName() }));
@@ -359,7 +359,7 @@ public class EnumUtil {
                                            Class[] paramTypes) {
         Method method = null;
 
-        for (Class clazz = enumClass; !clazz.equals(com.alibaba.common.lang.enumeration.Enum.class); clazz = clazz
+        for (Class clazz = enumClass; !clazz.equals(Enum.class); clazz = clazz
                 .getSuperclass()) {
             try {
                 method = clazz.getDeclaredMethod(methodName, paramTypes);

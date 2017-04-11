@@ -1,9 +1,6 @@
 package com.basic.leanring.java.generic;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author sunzihan
  * @version $Id: Client.java V 0.1 2/23/17 12:08 sunzihan EXP $

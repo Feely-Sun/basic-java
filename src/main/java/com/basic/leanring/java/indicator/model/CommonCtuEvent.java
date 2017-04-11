@@ -1,9 +1,9 @@
 package com.basic.leanring.java.indicator.model;
 
-import com.alibaba.common.lang.StringUtil;
-
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+
+import com.alibaba.common.lang.StringUtil;
 
 /**
  * @author sunzihan

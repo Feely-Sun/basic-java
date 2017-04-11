@@ -1,15 +1,14 @@
 package com.basic.leanring.java.indicator;
 
 
+import java.util.Map;
+import java.util.Set;
 
 import com.basic.leanring.java.indicator.impl.IndicatorTransMeta;
 import com.basic.leanring.java.indicator.model.CommonCtuEvent;
 import com.basic.leanring.java.indicator.model.IndicatorResultRef;
 import com.basic.leanring.java.indicator.model.MultiResult;
 import com.basic.leanring.java.indicator.model.SingleCalResult;
-
-import java.util.Map;
-import java.util.Set;
 
 /**
  * @author sunzihan

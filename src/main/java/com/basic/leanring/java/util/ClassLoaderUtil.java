@@ -1,21 +1,14 @@
 package com.basic.leanring.java.util;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.*;
+
 import com.alibaba.common.lang.ClassInstantiationException;
 import com.alibaba.common.lang.ClassUtil;
 import com.alibaba.common.lang.ServiceNotFoundException;
 import com.alibaba.common.lang.io.StreamUtil;
-
-import java.io.IOException;
-import java.io.InputStream;
-
-import java.net.URL;
-
-import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
 
 /**
  * <p>

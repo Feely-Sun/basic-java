@@ -1,8 +1,8 @@
 package com.basic.leanring.java.indicator.model;
 
-import com.basic.leanring.java.indicator.IndicatorResult;
-
 import java.util.Map;
+
+import com.basic.leanring.java.indicator.IndicatorResult;
 
 /**
  * @author sunzihan

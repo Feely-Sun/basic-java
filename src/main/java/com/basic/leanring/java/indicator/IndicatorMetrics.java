@@ -1,16 +1,16 @@
 package com.basic.leanring.java.indicator;
 
+import java.util.Observable;
+import java.util.Observer;
+
+import org.springframework.beans.factory.InitializingBean;
+
 import com.alibaba.common.logging.Logger;
 import com.alibaba.common.logging.LoggerFactory;
 import com.basic.leanring.java.indicator.model.IndicatorValue;
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.MetricRegistry;
 import com.codahale.metrics.Timer;
-import org.springframework.beans.factory.InitializingBean;
-
-import java.util.Observable;
-import java.util.Observer;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author sunzihan

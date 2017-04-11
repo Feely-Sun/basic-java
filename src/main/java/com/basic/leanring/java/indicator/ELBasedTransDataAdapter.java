@@ -1,8 +1,8 @@
 package com.basic.leanring.java.indicator;
 
-import com.basic.leanring.java.indicator.model.CommonCtuEvent;
-
 import java.util.Map;
+
+import com.basic.leanring.java.indicator.model.CommonCtuEvent;
 
 /**
  * @author sunzihan

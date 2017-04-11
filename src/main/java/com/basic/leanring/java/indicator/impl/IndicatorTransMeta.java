@@ -1,13 +1,14 @@
 package com.basic.leanring.java.indicator.impl;
 
+import java.util.Map;
+
+import org.aopalliance.intercept.MethodInvocation;
+import org.apache.commons.lang.StringUtils;
+
 import com.basic.leanring.java.indicator.MetaInfo;
 import com.basic.leanring.java.indicator.TransDataAdapter;
 import com.basic.leanring.java.util.Cloner;
 import com.google.common.collect.Maps;
-import org.aopalliance.intercept.MethodInvocation;
-import org.apache.commons.lang.StringUtils;
-
-import java.util.Map;
 
 /**
  * @author sunzihan

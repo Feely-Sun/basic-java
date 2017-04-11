@@ -1,7 +1,5 @@
 package com.basic.leanring.java.indicator.model;
 
-import sun.jvm.hotspot.runtime.Bytes;
-
 /**
  * @author sunzihan
  * @version $Id: IndicatorSnapshotConstant.java V 0.1 3/15/17 15:51 sunzihan EXP $

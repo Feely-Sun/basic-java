@@ -1,10 +1,10 @@
 package com.basic.leanring.java.util;
 
-import com.alibaba.common.lang.ArrayUtil;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import com.alibaba.common.lang.ArrayUtil;
 
 /**
         * 有关字符串处理的工具类。

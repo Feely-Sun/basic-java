@@ -1,8 +1,8 @@
 package com.basic.leanring.java.util;
 
-import com.alibaba.common.lang.StringUtil;
-
 import java.net.InetAddress;
+
+import com.alibaba.common.lang.StringUtil;
 
 /**
  * @author sunzihan

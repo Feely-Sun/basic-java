@@ -1,15 +1,15 @@
 package com.basic.leanring.java.indicator;
 
+import java.util.Arrays;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.util.CollectionUtils;
+
 import com.alibaba.common.logging.Logger;
 import com.alibaba.common.logging.LoggerFactory;
 import com.basic.leanring.java.indicator.context.IndicatorValueContext;
 import com.basic.leanring.java.indicator.model.CommonCtuEvent;
-import com.basic.leanring.java.indicator.model.IndicatorSnapshotConstant;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.util.CollectionUtils;
-
-import java.util.Arrays;
-import java.util.Map;
 
 /**
  * @author sunzihan

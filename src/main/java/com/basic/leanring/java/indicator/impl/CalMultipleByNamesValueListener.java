@@ -1,15 +1,16 @@
 package com.basic.leanring.java.indicator.impl;
 
+import java.util.Map;
+import java.util.Set;
+
+import org.springframework.util.CollectionUtils;
+
 import com.alibaba.common.logging.Logger;
 import com.alibaba.common.logging.LoggerFactory;
 import com.basic.leanring.java.indicator.IndicatorValueListener;
 import com.basic.leanring.java.indicator.context.IndicatorValueContext;
 import com.basic.leanring.java.indicator.model.MultiResult;
 import com.google.common.collect.Sets;
-import org.springframework.util.CollectionUtils;
-
-import java.util.Map;
-import java.util.Set;
 
 /**
  * @author sunzihan

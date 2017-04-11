@@ -2,7 +2,6 @@ package com.basic.leanring.java.indicator.model;
 
 import com.alibaba.common.logging.Logger;
 import com.alibaba.common.logging.LoggerFactory;
-
 import com.basic.leanring.java.indicator.IndicatorResult;
 import com.basic.leanring.java.indicator.IndicatorValueListener;
 import com.basic.leanring.java.indicator.impl.CalMultipleByIdsValueListener;

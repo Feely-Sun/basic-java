@@ -1,8 +1,8 @@
 package com.basic.leanring.java;
 
-import com.alibaba.common.lang.StringUtil;
-
 import java.io.UnsupportedEncodingException;
+
+import com.alibaba.common.lang.StringUtil;
 
 /**
  * @author sunzihan

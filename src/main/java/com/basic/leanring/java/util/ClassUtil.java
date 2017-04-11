@@ -1,9 +1,9 @@
 package com.basic.leanring.java.util;
 
-import com.alibaba.common.lang.*;
-
 import java.lang.reflect.Array;
 import java.util.*;
+
+import com.alibaba.common.lang.ArrayUtil;
 
 /**
  * @author sunzihan

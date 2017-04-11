@@ -1,14 +1,15 @@
 package com.basic.leanring.java.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.log4j.Logger;
+
 import com.basic.leanring.java.serializer.EnumSerializerFactory;
 import com.caucho.hessian.io.Hessian2Input;
 import com.caucho.hessian.io.Hessian2Output;
 import com.caucho.hessian.io.SerializerFactory;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.log4j.Logger;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 
 /**
  * @author sunzihan
@@ -22,7 +23,7 @@ public class Cloner {
     static {
         factory = new SerializerFactory();
         factory.addFactory(eunmFactory);
-        factory.addFactory(null);
+        //factory.addFactory(null);
         factory.setAllowNonSerializable(true);
     }
 

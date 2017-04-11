@@ -1,10 +1,10 @@
 package com.basic.leanring.java.indicator;
 
+import java.util.Map;
+
 import com.google.common.collect.Maps;
 import com.googlecode.aviator.AviatorEvaluator;
 import com.googlecode.aviator.Expression;
-
-import java.util.Map;
 
 /**
  * @author sunzihan

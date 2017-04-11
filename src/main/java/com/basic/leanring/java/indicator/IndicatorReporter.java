@@ -1,23 +1,13 @@
 package com.basic.leanring.java.indicator;
 
-import com.alibaba.common.logging.Logger;
-import com.alibaba.common.logging.LoggerFactory;
-import com.codahale.metrics.*;
-
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import com.codahale.metrics.Counter;
-import com.codahale.metrics.Gauge;
-import com.codahale.metrics.Histogram;
-import com.codahale.metrics.Meter;
-import com.codahale.metrics.MetricFilter;
-import com.codahale.metrics.MetricRegistry;
 
-import com.codahale.metrics.Snapshot;
-import com.codahale.metrics.Timer;
-import com.codahale.metrics.ScheduledReporter.*;
+import com.alibaba.common.logging.Logger;
+import com.alibaba.common.logging.LoggerFactory;
+import com.codahale.metrics.*;
 
 /**
  * @author sunzihan

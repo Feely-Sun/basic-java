@@ -19,7 +19,7 @@ public class EnumSerializerFactory extends AbstractSerializerFactory {
      * @return a serializer object for the serialization.
      */
     public Serializer getSerializer(Class cl) throws HessianProtocolException {
-        if (Enum.class.isAssignableFrom(cl)) {
+        if (com.basic.leanring.java.util.Enum.class.isAssignableFrom(cl)) {
             return new EnumSerializer(cl);
         }
         return null;

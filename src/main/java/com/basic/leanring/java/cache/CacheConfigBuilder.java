@@ -1,9 +1,9 @@
 package com.basic.leanring.java.cache;
 
+import java.util.concurrent.TimeUnit;
+
 import com.alibaba.fastjsonfordrm.JSON;
 import com.google.common.cache.CacheBuilder;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author sunzihan
