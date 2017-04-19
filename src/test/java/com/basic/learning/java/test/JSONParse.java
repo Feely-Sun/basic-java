@@ -75,7 +75,9 @@ public class JSONParse extends BaseTest {
 
 
 
-        JSONArray res = JSONArray.parseArray(zdalHbase);
+        String str = " [\"newVelocityNumber\",\"distinct-e\",\"UMID\",\"5428\",\"UID\",\"12h\"]";
+
+        JSONArray res = JSONArray.parseArray(str);
 
 
         System.out.println(res);
