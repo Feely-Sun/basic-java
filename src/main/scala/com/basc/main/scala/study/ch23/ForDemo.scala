@@ -33,7 +33,6 @@ object ForDemo extends App{
 //  println("Ilist ===" + ilist)
 
  val b = new B
-
   println(b.a())
 
 

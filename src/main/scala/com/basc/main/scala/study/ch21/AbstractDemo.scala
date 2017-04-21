@@ -101,15 +101,40 @@ class AAImpl extends AA  with Similarity{
 object MainTest{
 
   def main(args: Array[String]) {
-    val si =  SimilarityImpl("1",1)
+//    val si =  SimilarityImpl("1",1)
+//
+//
+//    if (si.isNotSimilar("204")){
+//       if (si.isInstanceOf[SimilarityImpl]){
+//         val s = si.asInstanceOf[SimilarityImpl]
+//         s.printlnKV()
+//       }
+//    }
 
 
-    if (si.isNotSimilar("204")){
-       if (si.isInstanceOf[SimilarityImpl]){
-         val s = si.asInstanceOf[SimilarityImpl]
-         s.printlnKV()
-       }
+    val  start = System.currentTimeMillis();
+
+
+//    for (x <- 1 until 1000){
+//
+//     // println(x)
+//
+//
+//    }
+
+
+    var x = 0
+    while (x < 1000000000) {
+      x += 1
     }
+
+
+    println(System.currentTimeMillis() -start)
+
+
+
+
+
   }
 
 }

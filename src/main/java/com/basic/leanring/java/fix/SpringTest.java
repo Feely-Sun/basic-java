@@ -12,18 +12,26 @@ public class SpringTest {
 
     public void printf(){
 
-       String  str = "abc";
-        Map<String,String> strMap = new HashMap<>();
+//       String  str = "abc";
+//        Map<String,String> strMap = new HashMap<>();
+//
+//
+//        strMap.put("1","abc");
+//
+//        String s = strMap.get("1");
+//
+//
+//        System.out.println(s != str);
 
 
-        strMap.put("1","abc");
+        long start = System.currentTimeMillis();
+        long x = 0;
+        while(x < 1000000000){
+            x+=1;
+        }
 
-        String s = strMap.get("1");
 
-
-        System.out.println(s != str);
-
-
+        System.out.println(System.currentTimeMillis() - start);
 
 
 
