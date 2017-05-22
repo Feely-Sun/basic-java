@@ -14,9 +14,7 @@ class Student {
 
 
   def sMessage(stuNo: String): String = {
-
     "d";
-
   }
 
 

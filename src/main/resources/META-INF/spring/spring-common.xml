@@ -11,4 +11,11 @@
 
 
     <bean id="cache" class="com.basic.leanring.java.cache.VCache" />
+
+
+    <bean id="testBean" class="com.basic.leanring.java.TestBean" />
+
+
+    <bean id="test2" class="com.basic.leanring.java.Test2" />
+
 </beans>
