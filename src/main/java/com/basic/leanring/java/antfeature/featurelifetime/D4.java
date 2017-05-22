@@ -6,4 +6,3 @@ package com.basic.leanring.java.antfeature.featurelifetime;
  */
 public class D4 {
 }
-
